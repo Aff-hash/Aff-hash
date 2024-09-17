@@ -1,0 +1,53 @@
+name: Build APK
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checkout the repository
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # Set up Python
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.8'
+
+    # Install dependencies
+    - name: Install dependencies
+      run: |
+        sudo apt update
+        sudo apt install -y git zip unzip openjdk-17-jdk autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
+        python -m pip install --upgrade pip
+        pip install --user --upgrade Cython==0.29.33 virtualenv
+        pip install --user --upgrade buildozer
+
+    # Install Android SDK build tools and other necessary components
+    - name: Install Android SDK build tools
+      run: |
+        export PATH=$PATH:~/.local/bin/
+        sdkmanager --install "build-tools;29.0.0" "platform-tools" "platforms;android-29"
+        yes | sdkmanager --licenses
+
+    # Build the APK using Buildozer
+    - name: Build APK
+      run: |
+        export PATH=$PATH:~/.local/bin/
+        buildozer android debug
+
+    # Save the APK artifact for download
+    - name: Upload APK
+      uses: actions/upload-artifact@v3
+      with:
+        name: my-app.apk
+        path: bin/*.apk
