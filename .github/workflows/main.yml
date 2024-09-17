@@ -35,8 +35,8 @@ jobs:
     # Install Android SDK build tools and other necessary components
     - name: Install Android SDK build tools
       run: |
-        wget https://dl.google.com/android/repository/platform-tools_r29.0.0-linux.zip
-        unzip platform-tools_r29.0.0-linux.zip
+        wget https://dl.google.com/android/repository/platform-tools_r34.0.0-linux.zip
+        unzip platform-tools_r34.0.0-linux.zip
         sudo apt-get install aidl
         which aidl /usr/bin/aidl
         cp /usr/bin/aidl ~/.buildozer/android/platform/android-sdk/build-tools/31.0.0/
