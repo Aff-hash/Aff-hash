@@ -35,8 +35,6 @@ jobs:
     # Install Android SDK build tools and other necessary components
     - name: Install Android SDK build tools
       run: |
-        wget https://dl.google.com/android/repository/platform-tools_r34.0.0-linux.zip
-        unzip platform-tools_r34.0.0-linux.zip
         sudo apt-get install aidl
         which aidl /usr/bin/aidl
         mkdir ~/.buildozer
@@ -47,12 +45,7 @@ jobs:
         mkdir ~/.buildozer/android/platform/android-sdk/build-tools/31.0.0
         cp /usr/bin/aidl ~/.buildozer/android/platform/android-sdk/build-tools/31.0.0/
         chmod 777 ~/.buildozer/android/platform/android-sdk/build-tools/31.0.0/aidl
-        sudo apt-get install sdkmanager
-        mkdir ~/.buildozer/android/platform/android-sdk/tools
-        mkdir ~/.buildozer/android/platform/android-sdk/tools/bin
-        cp /usr/bin/sdkmanager ~/.buildozer/android/platform/android-sdk/tools/bin/
-        chmod 777 ~/.buildozer/android/platform/android-sdk/tools/bin/sdkmanager
-        ~/.buildozer/android/platform/android-sdk/tools/bin/sdkmanager "build-tools;29.0.0"
+        
     # Build the APK using Buildozer
     - name: Build APK
       run: |
