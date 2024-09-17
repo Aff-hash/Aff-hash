@@ -35,14 +35,12 @@ jobs:
     # Install Android SDK build tools and other necessary components
     - name: Install Android SDK build tools
       run: |
-        export PATH=$PATH:~/.local/bin/
         sdkmanager --install "build-tools;29.0.0" "platform-tools" "platforms;android-29"
         yes | sdkmanager --licenses
 
     # Build the APK using Buildozer
     - name: Build APK
       run: |
-        export PATH=$PATH:~/.local/bin/
         buildozer android debug
 
     # Save the APK artifact for download
