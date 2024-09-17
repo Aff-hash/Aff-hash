@@ -35,9 +35,8 @@ jobs:
     # Install Android SDK build tools and other necessary components
     - name: Install Android SDK build tools
       run: |
-        wget https://dl.google.com/android/repository/platform-tools_r34.0.0-linux.zip
-        unzip platform-tools_r34.0.0-linux.zip
-        ~/.buildozer/android/platform/android-sdk/tools/bin/sdkmanager "build-tools;29.0.0"   
+        wget https://dl.google.com/android/repository/platform-tools_r29.0.0-linux.zip
+        unzip platform-tools_r29.0.0-linux.zip
     # Build the APK using Buildozer
     - name: Build APK
       run: |
