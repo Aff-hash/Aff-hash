@@ -37,7 +37,7 @@ jobs:
       run: |
         wget https://dl.google.com/android/repository/platform-tools_r34.0.0-linux.zip
         unzip platform-tools_r34.0.0-linux.zip
-        sdkmanager "build-tools;29.0.0"        
+        ~/.buildozer/android/platform/android-sdk/tools/bin/sdkmanager "build-tools;29.0.0"   
     # Build the APK using Buildozer
     - name: Build APK
       run: |
