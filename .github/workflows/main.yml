@@ -39,6 +39,7 @@ jobs:
         unzip platform-tools_r34.0.0-linux.zip
         sudo apt-get install aidl
         which aidl /usr/bin/aidl
+        mkdir ~/.buildozer
         mkdir ~/.buildozer/android
         mkdir ~/.buildozer/android/platform
         mkdir ~/.buildozer/android/platform/android-sdk
