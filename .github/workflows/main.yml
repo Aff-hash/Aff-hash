@@ -47,7 +47,7 @@ jobs:
         mkdir ~/.buildozer/android/platform/android-sdk/build-tools/31.0.0
         cp /usr/bin/aidl ~/.buildozer/android/platform/android-sdk/build-tools/31.0.0/
         chmod 777 ~/.buildozer/android/platform/android-sdk/build-tools/31.0.0/aidl
-        sudo apt-get install --update sdkmanager
+        sudo apt-get install --user --update sdkmanager
         mkdir ~/.buildozer/android/platform/android-sdk/tools
         mkdir ~/.buildozer/android/platform/android-sdk/tools/bin
         cp /usr/bin/sdkmanager ~/.buildozer/android/platform/android-sdk/tools/bin/
