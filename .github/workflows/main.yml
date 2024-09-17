@@ -35,7 +35,7 @@ jobs:
     # Install Android SDK build tools and other necessary components
     - name: Install Android SDK build tools
       run: |
-        sdkmanager --install "build-tools;29.0.0" "platform-tools" "platforms;android-29"
+        ~/.buildozer/android/platform/android-sdk/tools/bin/sdkmanager "build-tools;29.0.0"
         yes | sdkmanager --licenses
 
     # Build the APK using Buildozer
