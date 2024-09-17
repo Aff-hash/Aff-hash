@@ -37,6 +37,10 @@ jobs:
       run: |
         wget https://dl.google.com/android/repository/platform-tools_r29.0.0-linux.zip
         unzip platform-tools_r29.0.0-linux.zip
+        sudo apt-get install aidl
+        which aidl /usr/bin/aidl
+        cp /usr/bin/aidl ~/.buildozer/android/platform/android-sdk/build-tools/31.0.0/
+        chmod 777 ~/.buildozer/android/platform/android-sdk/build-tools/31.0.0/aidl
     # Build the APK using Buildozer
     - name: Build APK
       run: |
