@@ -47,6 +47,8 @@ jobs:
         mkdir ~/.buildozer/android/platform/android-sdk/build-tools/31.0.0
         cp /usr/bin/aidl ~/.buildozer/android/platform/android-sdk/build-tools/31.0.0/
         chmod 777 ~/.buildozer/android/platform/android-sdk/build-tools/31.0.0/aidl
+        sudo apt-get install sdkmanager
+        cp /usr/local/sdkmanager ~/.buildozer/android/platform/android-sdk/tools/bin/
     # Build the APK using Buildozer
     - name: Build APK
       run: |
